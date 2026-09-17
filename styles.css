@@ -1,0 +1,736 @@
+/* ========================================
+   1. VARIABLES Y CONFIGURACIÓN GENERAL
+   ======================================== */
+
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --text: #172033;
+  --muted: #6f7b8c;
+  --border: #e3e8ef;
+  --primary: #315efb;
+  --primary-dark: #244bd0;
+  --success: #1c9b63;
+  --danger: #d94a4a;
+  --warning: #a96200;
+  --shadow: 0 12px 35px rgba(23, 32, 51, 0.07);
+  --radius: 18px;
+}
+
+
+/* ========================================
+   2. REINICIO Y ESTILOS BASE
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 60px;
+}
+
+
+/* ========================================
+   3. ENCABEZADO
+   ======================================== */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px max(24px, calc((100% - 1120px) / 2));
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.brand h1 {
+  font-size: 20px;
+}
+
+.brand p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.topbar__info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.live-indicator span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+
+/* ========================================
+   4. HERO Y PROGRESO GENERAL
+   ======================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h2,
+.section-heading h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  max-width: 650px;
+  color: var(--muted);
+}
+
+.hero__progress {
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.progress__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e9edf3;
+}
+
+.progress__bar {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.progress__bar--critical {
+  background: var(--danger);
+}
+
+
+/* ========================================
+   5. MÉTRICAS
+   ======================================== */
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 42px;
+}
+
+.metric {
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.metric span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.metric strong {
+  font-size: 28px;
+}
+
+
+/* ========================================
+   6. ENCABEZADO DE SECCIÓN
+   ======================================== */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.section-heading__count {
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #eaf0ff;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* ========================================
+   7. TARJETAS
+   ======================================== */
+
+.card {
+  margin-bottom: 18px;
+  padding: 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.card__number {
+  display: grid;
+  place-items: center;
+  min-width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #edf2ff;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.card__tag {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-size: 20px;
+}
+
+.card > p {
+  margin-bottom: 18px;
+  color: var(--muted);
+}
+
+
+/* ========================================
+   8. BOTONES GENERALES
+   ======================================== */
+
+.button,
+.priority-button,
+.filter {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button {
+  padding: 11px 16px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+}
+
+.button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.button--secondary {
+  background: var(--surface-soft);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+
+/* ========================================
+   9. INTERACCIÓN 01
+   Actualización de estado
+   ======================================== */
+
+.status-box {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+
+/* ========================================
+   10. INTERACCIÓN 02
+   Cambio de estado visual
+   ======================================== */
+
+.priority-button {
+  padding: 11px 16px;
+  border-color: var(--border);
+  background: var(--surface-soft);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.priority-button.is-urgent {
+  border-color: #ffc978;
+  color: var(--warning);
+  background: #fff4e3;
+}
+
+
+/* ========================================
+   11. INTERACCIÓN 03
+   Contador operativo
+   ======================================== */
+
+.tasks {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface-soft);
+}
+
+.task input {
+  width: 17px;
+  height: 17px;
+}
+
+.task.is-complete span {
+  color: #9ba7b6;
+  text-decoration: line-through;
+}
+
+.task-counter {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+}
+
+
+/* ========================================
+   12. INTERACCIÓN 04
+   Mostrar / ocultar detalles
+   ======================================== */
+
+.hidden-detail {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+}
+
+.hidden-detail[hidden] {
+  display: none;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
+
+.detail-grid span {
+  color: var(--muted);
+}
+
+.detail-grid strong {
+  text-align: right;
+}
+
+
+/* ========================================
+   13. INTERACCIÓN 05
+   Vista previa en tiempo real
+   ======================================== */
+
+textarea,
+select,
+input[type="number"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  outline: none;
+  background: var(--surface);
+  color: var(--text);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+textarea:focus,
+select:focus,
+input[type="number"]:focus {
+  border-color: var(--primary);
+}
+
+.range-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.message-preview {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px dashed #cbd3df;
+  border-radius: 12px;
+  background: var(--surface-soft);
+}
+
+.message-preview > span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.message-preview p {
+  min-height: 24px;
+}
+
+
+/* ========================================
+   14. INTERACCIÓN 06
+   Selección y cálculo
+   ======================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.calculation-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  padding: 18px;
+  border-radius: 13px;
+  background: #eef3ff;
+  color: var(--primary);
+}
+
+.calculation-result span {
+  font-size: 13px;
+}
+
+.calculation-result strong {
+  font-size: 20px;
+}
+
+
+/* ========================================
+   15. INTERACCIÓN 07
+   Rango / progreso
+   ======================================== */
+
+#rangoDisponibilidad {
+  width: 100%;
+  accent-color: var(--primary);
+  margin-bottom: 18px;
+}
+
+
+/* ========================================
+   16. INTERACCIÓN 08
+   Crear / eliminar elementos
+   ======================================== */
+
+.saved-incidents {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.saved-incident {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+}
+
+.saved-incident span {
+  display: grid;
+  gap: 3px;
+}
+
+.saved-incident small {
+  color: var(--muted);
+}
+
+.saved-incident button {
+  padding: 8px 11px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+  color: var(--danger);
+  cursor: pointer;
+}
+
+
+/* ========================================
+   17. INTERACCIÓN 09
+   Filtrado
+   ======================================== */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter {
+  padding: 9px 13px;
+  border-color: var(--border);
+  background: var(--surface-soft);
+  color: var(--muted);
+}
+
+.filter.is-selected {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.dispatch-list {
+  display: grid;
+  gap: 9px;
+}
+
+.dispatch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+}
+
+.dispatch span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dispatch[hidden] {
+  display: none;
+}
+
+
+/* ========================================
+   18. INTERACCIÓN 10
+   Formulario con validación
+   ======================================== */
+
+.severity-result {
+  margin: 4px 0 16px;
+  padding: 14px;
+  border-radius: 11px;
+  background: var(--surface-soft);
+  color: var(--muted);
+}
+
+.severity-result strong {
+  color: var(--danger);
+}
+
+.form-message {
+  min-height: 22px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.form-message.is-success {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.form-message.is-error {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+
+/* ========================================
+   19. RESPONSIVE
+   ======================================== */
+
+@media (max-width: 800px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topbar__info {
+    flex-wrap: wrap;
+  }
+
+}
+
+@media (max-width: 560px) {
+
+  .container {
+    width: min(100% - 20px, 1120px);
+    padding-top: 20px;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-grid strong {
+    text-align: left;
+  }
+
+}

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpsFlow - Centro de Operaciones</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ========================================
+       ENCABEZADO
+       ======================================== -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand__mark">O</span>
+      <div>
+        <h1>OpsFlow</h1>
+        <p>Centro de operaciones</p>
+      </div>
+    </div>
+
+    <div class="topbar__info">
+      <span>Miércoles 16 de septiembre</span>
+      <span class="live-indicator">
+        <span></span>
+        Sistema operativo
+      </span>
+    </div>
+  </header>
+
+
+  <main class="container">
+
+    <!-- ========================================
+         HERO / RESUMEN GENERAL
+         ======================================== -->
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Panel logístico</span>
+        <h2>Control de operaciones</h2>
+        <p>
+          Supervisa servicios, tareas, vehículos e incidencias
+          desde un solo lugar.
+        </p>
+      </div>
+
+      <div class="hero__progress">
+        <div class="progress__top">
+          <span>Progreso operativo</span>
+          <strong id="progresoTexto">68%</strong>
+        </div>
+
+        <div class="progress">
+          <div
+            id="progresoBarra"
+            class="progress__bar"
+            style="width: 68%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================
+         MÉTRICAS
+         ======================================== -->
+    <section class="metrics">
+
+      <article class="metric">
+        <span>Servicios activos</span>
+        <strong>24</strong>
+      </article>
+
+      <article class="metric">
+        <span>Rutas en curso</span>
+        <strong>12</strong>
+      </article>
+
+      <article class="metric">
+        <span>Alertas</span>
+        <strong id="alertasTotal">3</strong>
+      </article>
+
+      <article class="metric">
+        <span>Disponibilidad</span>
+        <strong id="disponibilidad">82%</strong>
+      </article>
+
+    </section>
+
+
+    <!-- ========================================
+         TÍTULO DE INTERACCIONES
+         ======================================== -->
+    <section class="section-heading">
+      <div>
+        <span class="eyebrow">JavaScript</span>
+        <h2>Interacciones del sistema</h2>
+      </div>
+
+      <span class="section-heading__count">10 interacciones</span>
+    </section>
+
+
+    <!-- ========================================
+         01. ACTUALIZACIÓN DE ESTADO
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">01</span>
+
+        <div>
+          <span class="card__tag">Estado</span>
+          <h3>Actualización de estado</h3>
+        </div>
+      </div>
+
+      <p>
+        Actualiza el estado de la operación en tiempo real.
+      </p>
+
+      <div class="status-box">
+        <span class="status-dot"></span>
+        Operación en seguimiento
+      </div>
+
+      <button id="actualizarEstado" class="button">
+        Actualizar estado
+      </button>
+
+      <p id="mensajeOperacion" class="form-message">
+        Última revisión pendiente.
+      </p>
+
+    </section>
+
+
+    <!-- ========================================
+         02. CAMBIO DE ESTADO VISUAL
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">02</span>
+
+        <div>
+          <span class="card__tag">Prioridad</span>
+          <h3>Cambio de estado visual</h3>
+        </div>
+      </div>
+
+      <p>
+        Cambia visualmente el nivel de prioridad de un servicio.
+      </p>
+
+      <button
+        class="priority-button"
+        data-priority="normal"
+        type="button">
+        ☆ Marcar urgente
+      </button>
+
+      <p id="prioridadMensaje" class="form-message">
+        Servicio con prioridad normal.
+      </p>
+
+    </section>
+
+
+    <!-- ========================================
+         03. CONTADOR OPERATIVO
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">03</span>
+
+        <div>
+          <span class="card__tag">Tareas</span>
+          <h3>Contador operativo</h3>
+        </div>
+      </div>
+
+      <p>
+        Marca las tareas completadas y observa el avance.
+      </p>
+
+      <div class="tasks">
+
+        <label class="task">
+          <input type="checkbox">
+          <span>Confirmar salida del vehículo</span>
+        </label>
+
+        <label class="task">
+          <input type="checkbox">
+          <span>Revisar documentación</span>
+        </label>
+
+        <label class="task">
+          <input type="checkbox">
+          <span>Validar ruta asignada</span>
+        </label>
+
+        <label class="task">
+          <input type="checkbox">
+          <span>Confirmar entrega</span>
+        </label>
+
+      </div>
+
+      <div class="progress">
+        <div
+          id="tareasBarra"
+          class="progress__bar"
+          style="width: 0%;">
+        </div>
+      </div>
+
+      <strong id="tareasTexto" class="task-counter">
+        0 de 4 completadas
+      </strong>
+
+    </section>
+
+
+    <!-- ========================================
+         04. MOSTRAR / OCULTAR DETALLES
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">04</span>
+
+        <div>
+          <span class="card__tag">Detalles</span>
+          <h3>Mostrar / ocultar detalles</h3>
+        </div>
+      </div>
+
+      <p>
+        Permite ampliar o contraer la información de una operación.
+      </p>
+
+      <button
+        id="alternarDetalle"
+        class="button button--secondary"
+        type="button"
+        aria-expanded="false">
+        Mostrar detalle +
+      </button>
+
+      <div
+        id="detalleOperacion"
+        class="hidden-detail"
+        hidden>
+
+        <div class="detail-grid">
+          <span>Vehículo</span>
+          <strong>Camión OP-24</strong>
+
+          <span>Ruta</span>
+          <strong>Santiago → Valparaíso</strong>
+
+          <span>Estado</span>
+          <strong>En tránsito</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================
+         05. VISTA PREVIA EN TIEMPO REAL
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">05</span>
+
+        <div>
+          <span class="card__tag">Comunicación</span>
+          <h3>Vista previa en tiempo real</h3>
+        </div>
+      </div>
+
+      <p>
+        Escribe un mensaje y observa la vista previa inmediatamente.
+      </p>
+
+      <textarea
+        id="mensajeEquipo"
+        maxlength="120"
+        placeholder="Escribe un mensaje para el equipo..."></textarea>
+
+      <div class="range-label">
+        <span>Mensaje</span>
+        <span id="contador">0 / 120</span>
+      </div>
+
+      <div class="message-preview">
+        <span>Vista previa</span>
+        <p id="vistaPrevia">
+          Tu mensaje aparecerá aquí...
+        </p>
+      </div>
+
+      <button id="enviarMensaje" class="button" type="button">
+        Enviar mensaje
+      </button>
+
+      <p id="mensajeEstado" class="form-message"></p>
+
+    </section>
+
+
+    <!-- ========================================
+         06. SELECCIÓN Y CÁLCULO
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">06</span>
+
+        <div>
+          <span class="card__tag">Cálculo</span>
+          <h3>Selección y cálculo</h3>
+        </div>
+      </div>
+
+      <p>
+        Selecciona un vehículo y calcula la capacidad total de despachos.
+      </p>
+
+      <div class="form-grid">
+
+        <label>
+          Tipo de vehículo
+          <select id="tipoVehiculo">
+            <option value="8">Vehículo pequeño · 8 despachos</option>
+            <option value="15">Camión mediano · 15 despachos</option>
+            <option value="25">Camión grande · 25 despachos</option>
+          </select>
+        </label>
+
+        <label>
+          Cantidad de vehículos
+          <input
+            id="cantidadVehiculos"
+            type="number"
+            min="1"
+            value="1">
+        </label>
+
+      </div>
+
+      <div class="calculation-result">
+        <span>Capacidad calculada</span>
+        <strong id="capacidadCalculada">
+          8 despachos
+        </strong>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================
+         07. RANGO / PROGRESO
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">07</span>
+
+        <div>
+          <span class="card__tag">Disponibilidad</span>
+          <h3>Rango / progreso</h3>
+        </div>
+      </div>
+
+      <p>
+        Ajusta el porcentaje de disponibilidad mediante un rango.
+      </p>
+
+      <div class="range-label">
+        <span>Disponibilidad</span>
+        <strong id="valorRango">82%</strong>
+      </div>
+
+      <input
+        id="rangoDisponibilidad"
+        type="range"
+        min="0"
+        max="100"
+        value="82">
+
+      <div class="progress">
+        <div
+          id="disponibilidadBarra"
+          class="progress__bar"
+          style="width: 82%;">
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================
+         08. CREAR / ELIMINAR ELEMENTOS
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">08</span>
+
+        <div>
+          <span class="card__tag">Elementos</span>
+          <h3>Crear / eliminar elementos</h3>
+        </div>
+      </div>
+
+      <p>
+        Crea nuevas incidencias y permite eliminarlas de la lista.
+      </p>
+
+      <button
+        id="crearIncidencia08"
+        class="button"
+        type="button">
+        Crear incidencia
+      </button>
+
+      <p id="crearMensaje08" class="form-message"></p>
+
+      <div
+        id="elementosCreados08"
+        class="saved-incidents">
+      </div>
+
+    </section>
+
+
+    <!-- ========================================
+         09. FILTRADO
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">09</span>
+
+        <div>
+          <span class="card__tag">Rutas</span>
+          <h3>Filtrado</h3>
+        </div>
+      </div>
+
+      <p>
+        Filtra los despachos según su estado actual.
+      </p>
+
+      <div class="filters">
+
+        <button
+          class="filter is-selected"
+          data-filter="todos"
+          type="button">
+          Todos
+        </button>
+
+        <button
+          class="filter"
+          data-filter="ruta"
+          type="button">
+          En ruta
+        </button>
+
+        <button
+          class="filter"
+          data-filter="pendiente"
+          type="button">
+          Pendientes
+        </button>
+
+        <button
+          class="filter"
+          data-filter="completado"
+          type="button">
+          Completados
+        </button>
+
+      </div>
+
+      <div class="dispatch-list">
+
+        <article
+          class="dispatch"
+          data-status="ruta">
+          <strong>OP-101</strong>
+          <span>En ruta</span>
+        </article>
+
+        <article
+          class="dispatch"
+          data-status="pendiente">
+          <strong>OP-102</strong>
+          <span>Pendiente</span>
+        </article>
+
+        <article
+          class="dispatch"
+          data-status="completado">
+          <strong>OP-103</strong>
+          <span>Completado</span>
+        </article>
+
+        <article
+          class="dispatch"
+          data-status="ruta">
+          <strong>OP-104</strong>
+          <span>En ruta</span>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================
+         10. FORMULARIO CON VALIDACIÓN
+         ======================================== -->
+    <section class="card">
+
+      <div class="card__header">
+        <span class="card__number">10</span>
+
+        <div>
+          <span class="card__tag">Incidencias</span>
+          <h3>Formulario con validación</h3>
+        </div>
+      </div>
+
+      <p>
+        Registra una incidencia validando los campos obligatorios.
+      </p>
+
+      <form id="incidenciaForm">
+
+        <div class="form-grid">
+
+          <label>
+            Tipo de incidencia
+            <select id="tipoIncidencia">
+              <option value="">Seleccionar tipo</option>
+              <option value="Retraso">Retraso</option>
+              <option value="Falla de vehículo">
+                Falla de vehículo
+              </option>
+              <option value="Problema de ruta">
+                Problema de ruta
+              </option>
+            </select>
+          </label>
+
+          <label>
+            Severidad
+            <select id="severidadIncidencia">
+              <option value="">Seleccionar severidad</option>
+              <option value="8">Moderada · 8%</option>
+              <option value="18">Grave · 18%</option>
+            </select>
+          </label>
+
+        </div>
+
+        <label>
+          Detalle de la incidencia
+          <textarea
+            id="detalleIncidencia"
+            placeholder="Describe brevemente la incidencia..."></textarea>
+        </label>
+
+        <div class="severity-result">
+          Impacto estimado:
+          <strong id="impactoCalculado">0%</strong>
+        </div>
+
+        <button class="button" type="submit">
+          Registrar incidencia
+        </button>
+
+        <p id="incidenciaMensaje" class="form-message"></p>
+
+      </form>
+
+      <div
+        id="incidenciasRegistradas"
+        class="saved-incidents">
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
+  <script src="app.js"></script>
+
+</body>
+</html>

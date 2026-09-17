@@ -1,0 +1,19 @@
+# Archivos y carpetas del sistema
+
+.DS_Store
+Thumbs.db
+
+# Configuración de editores
+
+.vscode/
+.idea/
+
+# Dependencias de Node.js
+
+node_modules/
+
+# Archivos temporales
+
+*.tmp
+*.temp
+*.log
