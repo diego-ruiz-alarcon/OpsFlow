@@ -1,0 +1,9 @@
+{
+  "name": "opsflow-prototipo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Prototipo de operaciones logísticas servido desde el notebook",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
