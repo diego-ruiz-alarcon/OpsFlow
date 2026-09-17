@@ -11,6 +11,7 @@ La aplicación fue desarrollada como parte de una actividad académica enfocada 
 * HTML5
 * CSS3
 * JavaScript
+* Node.js
 * Git
 * GitHub
 * GitHub Pages
@@ -22,6 +23,8 @@ OpsFlow/
 ├── index.html
 ├── styles.css
 ├── app.js
+├── package.json
+├── server.js
 ├── README.md
 └── .gitignore
 ```
@@ -84,26 +87,30 @@ Además, la severidad seleccionada afecta el progreso operativo y el contador de
 
 ## Funcionamiento
 
+### Ejecución local
+
 Para ejecutar el proyecto localmente:
 
 1. Descargar o clonar el repositorio.
 2. Abrir la carpeta del proyecto.
-3. Abrir el archivo `index.html` en un navegador web.
+3. Instalar las dependencias con `npm install`.
+4. Ejecutar el servidor con `npm start`.
+5. Abrir `http://localhost:5500` en el navegador.
 
-No se requiere un servidor adicional para ejecutar la versión básica del proyecto.
+### Publicación
+
+La versión final del proyecto está publicada mediante **GitHub Pages**.
+
+## Enlaces
+
+* **Repositorio GitHub:** https://github.com/diego-ruiz-alarcon/OpsFlow
+* **Aplicación publicada:** https://diego-ruiz-alarcon.github.io/OpsFlow/
 
 ## Git y control de versiones
 
 El desarrollo del proyecto se organiza utilizando Git mediante una rama de trabajo y commits que permiten registrar los cambios realizados durante el desarrollo.
 
-La versión final se publica mediante **GitHub Pages**.
-
-## Publicación
-
-Una vez configurado GitHub Pages, el proyecto estará disponible mediante una dirección web asociada al repositorio.
-
-**URL del proyecto:**
-*Pendiente de publicar en GitHub Pages.*
+La versión final se encuentra fusionada en la rama `main` y publicada mediante **GitHub Pages**.
 
 ## Autor
 
